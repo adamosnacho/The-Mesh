@@ -1,5 +1,5 @@
 from machine import Pin, I2C
-import time, os, machine
+import time, os, machine, requests
 from ssd1306 import SSD1306_I2C
 from funcs import *
 i2c = machine.I2C(sda=Pin(4), scl=Pin(5))
@@ -23,9 +23,9 @@ while On:
 	for i in range(len(apps)):
 		
 		if i == pn:
-			scr.text(apps[i].replace('.py', '') + ' <', 1, i * 10, 1)
+			scr.text('>' + apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 		else:
-			scr.text(apps[i].replace('.py', ''), 1, i * 10, 1)
+			scr.text(apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 	scr.show()
 	if Btn(1):
 		pn -= 1
