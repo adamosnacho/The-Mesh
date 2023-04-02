@@ -16,6 +16,11 @@ if not Btn(1):
 	apps.remove('wifi')
 	apps.remove('requests.py')
 
+scr.clear()
+scr.text('The Mesh | v-0.1',0,0,1)
+scr.text('by Adam Ryan',0,54,1)
+scr.show()
+time.sleep(6)
 
 while On:
 # 	tmr.alarm(6, 1000, 1, function() tmr.wdclr() end)
