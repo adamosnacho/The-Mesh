@@ -55,12 +55,12 @@ print('connected!')
 
 appName = Keyboard('app')
 appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+appName+'.py').text
-print(appCnt)
 if appCnt == '404: Not Found':
 	machine.reset()
-with open(appName, 'w') as appfile:
-	appFile.write(appCnt)
-machine.reset()
+else:
+	with open(appName+'.py', 'w') as appfile:
+		appfile.write(appCnt)
+	machine.reset()
 
 
 
