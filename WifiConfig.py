@@ -39,6 +39,7 @@ def Keyboard(title):
 	return data
 
 ssid = Keyboard('ssid:')
+time.sleep(1)
 pssw = Keyboard('password:')
 with open('wifi','w') as f:
 	f.write(str([ssid,pssw]))
