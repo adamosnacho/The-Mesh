@@ -1,5 +1,5 @@
 from machine import Pin, I2C
-import time, os, machine, requests
+import time, os, machine, requests, network
 from ssd1306 import SSD1306_I2C
 from funcs import *
 
