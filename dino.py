@@ -48,7 +48,7 @@ while Running:
 			gOver = True
 		
 		scr.clear()
-		scr.text(score,0,0,1)
+		scr.text(str(score),0,0,1)
 		scr.line(0,63,128,63,1)
 		scr.text('R',20,y,1)
 		scr.text('I',cx,56,1)
