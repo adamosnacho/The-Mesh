@@ -34,7 +34,7 @@ scr.clear()
 scr.text('The Mesh | v-0.1',0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
-time.sleep(3)
+time.sleep(0.5)
 
 while On:
 	if sta_if.isconnected:
