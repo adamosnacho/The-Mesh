@@ -22,7 +22,8 @@ try:
 	sta_if.connect(WIFISET[0], WIFISET[1])
 except:pass
 scr.clear()
-scr.text(str(apps),0,0,1)
+for i in range(len(apps)-1):
+	scr.text(str(apps[i]),0,i*10,1)
 scr.show()
 time.sleep(3)
 
