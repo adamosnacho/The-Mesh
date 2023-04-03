@@ -59,9 +59,9 @@ while On:
 	pn = Clamp(pn, 0, len(apps) - 1)
 	if Btn(4):
 		scr.clear()
-		scr.text('Loading '+ apps[pn].replace('.py', '') + '...',1,1,1)
+		scr.text('Loading...',1,1,1)
 		scr.show()
-		time.sleep(0.8)
+		time.sleep(0.2)
 		exec(RF(apps[pn]))
 	time.sleep(0.05)
 
