@@ -21,11 +21,6 @@ sta_if.active(True)
 try:
 	sta_if.connect(WIFISET[0], WIFISET[1])
 except:pass
-scr.clear()
-for i in range(len(apps)-1):
-	scr.text(str(apps[i]),0,i*10,1)
-scr.show()
-time.sleep(3)
 
 if not Btn(1):
 	apps.remove('main.py')
@@ -40,7 +35,7 @@ scr.clear()
 scr.text('The Mesh | v-0.1',0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
-time.sleep(0.5)
+time.sleep(0.7)
 
 while On:
 	if sta_if.isconnected:
