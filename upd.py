@@ -8,7 +8,7 @@ sta_if.connect(WIFISET[0], WIFISET[1])
 
 def wof(name):
     with open(name,'w') as f:
-        f.write(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/os/'+name).text)
+        f.write(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text)
 
 while not sta_if.isconnected:time.sleep(1)
 
