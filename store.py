@@ -45,8 +45,17 @@ if Connected:
     appName = Keyboard('app')
     appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+appName+'.py').text
     if appCnt == '404: Not Found':
+    	scr.clear()
+    	scr.text('No Such App!',0,0,1)
     	machine.reset()
+    	time.sleep(10)
     else:
+    	scr.clear()
+    	scr.text('Installing...',0,0,1)
     	with open(appName+'.py', 'w') as appfile:
     		appfile.write(appCnt)
     	machine.reset()
+    	time.sleep(10)
+else:
+    scr.clear()
+    scr.text('No Internet!',0,0,1)
