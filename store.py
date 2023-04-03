@@ -41,30 +41,12 @@ def Keyboard(title):
 
 	return data
 
-with open('wifi','r') as f:
-	WIFISET = eval(f.read())
-print('setup')
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
-sta_if.connect(WIFISET[0], WIFISET[1])
-
-while not sta_if.isconnected():
-	print('connecting')
-	time.sleep(1)
-print('connected!')
-
-appName = Keyboard('app')
-appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+appName+'.py').text
-if appCnt == '404: Not Found':
-	machine.reset()
-else:
-	with open(appName+'.py', 'w') as appfile:
-		appfile.write(appCnt)
-	machine.reset()
-
-
-
-
-
-
-
+if Connected:
+    appName = Keyboard('app')
+    appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+appName+'.py').text
+    if appCnt == '404: Not Found':
+    	machine.reset()
+    else:
+    	with open(appName+'.py', 'w') as appfile:
+    		appfile.write(appCnt)
+    	machine.reset()
