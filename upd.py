@@ -6,8 +6,10 @@ def wof(name):
     scr.text('Installing:',0,0,1)
     scr.text(name,0,10,1)
     scr.show()
-    with open(name,'w') as f:
-        f.write(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text)
+    cnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
+    with open(name,'w') as:
+        if cnt != '' or cnt != '404: Not Found':
+            f.write()
 if Connected:
     wof('main.py')
     wof('store.py')
