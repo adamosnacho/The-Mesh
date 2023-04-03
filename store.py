@@ -59,5 +59,8 @@ if Connected:
     	machine.reset()
     	time.sleep(10)
 else:
-    scr.clear()
-    scr.text('No Internet!',0,0,1)
+	scr.clear()
+	scr.text('No Internet!',0,0,1)
+	scr.show()
+	machine.reset()
+	time.sleep(10)
