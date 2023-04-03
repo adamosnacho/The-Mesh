@@ -38,3 +38,4 @@ def Keyboard(title):
 
 	return data
 os.remove(Keyboard('what?'))
+machine.reset()
