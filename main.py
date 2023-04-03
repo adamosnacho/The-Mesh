@@ -2,11 +2,25 @@ from machine import Pin, I2C
 import time, os, machine, requests
 from ssd1306 import SSD1306_I2C
 from funcs import *
+
 i2c = machine.I2C(sda=Pin(4), scl=Pin(5))
 scr = SSD1306_I2C(128, 64, i2c)
+
 On = True
 pn = 0
 apps = os.listdir()
+
+Connected = False
+
+
+with open('wifi','r') as f:
+	WIFISET = eval(f.read())
+print('setup')
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+sta_if.connect(WIFISET[0], WIFISET[1])
+
+
 if not Btn(1):
 	apps.remove('main.py')
 	apps.remove('funcs.py')
@@ -20,10 +34,13 @@ scr.clear()
 scr.text('The Mesh | v-0.1',0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
-time.sleep(6)
+time.sleep(3)
 
 while On:
-# 	tmr.alarm(6, 1000, 1, function() tmr.wdclr() end)
+    if sta_if.isconnected:
+        Connected = True
+    else:
+        Connected = False
 	scr.clear()
 	for i in range(len(apps)):
 		
