@@ -37,10 +37,10 @@ scr.show()
 time.sleep(3)
 
 while On:
-    if sta_if.isconnected:
-        Connected = True
-    else:
-        Connected = False
+	if sta_if.isconnected:
+		Connected = True
+	else:
+		Connected = False
 	scr.clear()
 	for i in range(len(apps)):
 		
@@ -63,6 +63,5 @@ while On:
 		time.sleep(0.8)
 		exec(RF(apps[pn]))
 	time.sleep(0.05)
-
 
 
