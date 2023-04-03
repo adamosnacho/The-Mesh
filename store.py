@@ -49,11 +49,13 @@ if Connected:
     if appCnt == '404: Not Found':
     	scr.clear()
     	scr.text('No Such App!',0,0,1)
+	scr.show()
     	machine.reset()
     	time.sleep(10)
     else:
     	scr.clear()
     	scr.text('Installing...',0,0,1)
+	scr.show()
     	with open(appName+'.py', 'w') as appfile:
     		appfile.write(appCnt)
     	machine.reset()
