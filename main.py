@@ -21,7 +21,10 @@ sta_if.active(True)
 try:
 	sta_if.connect(WIFISET[0], WIFISET[1])
 except:pass
-
+scr.clear()
+scr.text(str(apps),0,0,1)
+scr.show()
+time.sleep(3)
 
 if not Btn(1):
 	apps.remove('main.py')
