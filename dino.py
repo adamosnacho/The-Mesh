@@ -5,7 +5,7 @@ yvel = 0
 isG = False
 cx = 128
 gOver = False
-
+score = 0
 
 while Running:
 	if gOver:
@@ -17,6 +17,7 @@ while Running:
 			print('Start!')
 			cx = 130
 			gOver = False
+			score = 0
 	else:
 		# player jump
 		if y > 55:
@@ -37,7 +38,9 @@ while Running:
 		
 		cx -= 3
 		
-		if cx < -8:cx = 130
+		if cx < -8:
+			cx = 130
+			score += 1
 		
 		# cactus collision
 		
@@ -45,11 +48,8 @@ while Running:
 			gOver = True
 		
 		scr.clear()
+		scr.text(score,0,0,1)
 		scr.line(0,63,128,63,1)
 		scr.text('R',20,y,1)
 		scr.text('I',cx,56,1)
 		scr.show()
-		
-		
-		
-
