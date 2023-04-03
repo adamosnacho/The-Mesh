@@ -18,7 +18,9 @@ with open('wifi','r') as f:
 print('setup')
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
-sta_if.connect(WIFISET[0], WIFISET[1])
+try:
+	sta_if.connect(WIFISET[0], WIFISET[1])
+except:pass
 
 
 if not Btn(1):
@@ -63,5 +65,6 @@ while On:
 		time.sleep(0.8)
 		exec(RF(apps[pn]))
 	time.sleep(0.05)
+
 
 
