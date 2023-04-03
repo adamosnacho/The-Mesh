@@ -9,11 +9,15 @@ def wof(name):
     with open(name,'w') as f:
         f.write(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text)
 
-if sta_if.isconnected:
+if Connected:
     wof('main.py')
     wof('store.py')
     wof('WifiConfig.py')
     wof('console.py')
     wof('funcs.py')
+    scr.clear()
+    scr.text('DONE. reseting',0,0,1)
+    scr.show()
     os.remove('upd.py')
     machine.reset()
+    time.sleep(15)
