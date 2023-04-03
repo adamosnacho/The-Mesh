@@ -10,6 +10,8 @@ def wof(name):
     with open(name,'w') as f:
         f.write(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+name))
 
+while not sta_if.isconnected:time.sleep(1)
+
 wof('main.py')
 wof('store.py')
 wof('WifiConfig.py')
