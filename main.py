@@ -38,15 +38,11 @@ scr.show()
 time.sleep(0.7)
 
 while On:
-	if sta_if.isconnected:
-		Connected = True
-	else:
-		Connected = False
+	Connected =  sta_if.isconnected()
 	scr.clear()
 	for i in range(len(apps)):
-		
 		if i == pn:
-			scr.text('>' + apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
+			scr.text('> ' + apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 		else:
 			scr.text(apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 	scr.show()
