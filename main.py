@@ -48,7 +48,7 @@ while On:
 	scr.clear()
 	for i in range(len(apps)):
 		if i == pn:
-			scr.text('> ' + apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
+			scr.text('>' + apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 		else:
 			scr.text(apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 	scr.show()
