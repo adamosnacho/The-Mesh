@@ -1,6 +1,3 @@
-scr.clear()
-scr.show()
-time.sleep(5)
 import requests
 def wof(name):
 	scr.clear()
