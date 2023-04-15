@@ -1,6 +1,6 @@
 import network
 Running = True
-
+os.chdir('/')
 def Keyboard(title):
 	tick = 0
 	data = ''
