@@ -21,6 +21,7 @@ if sta_if.isconnected():
 	wof('Wifi.py')
 	wof('console.py')
 	wof('funcs.py')
+	wof('v')
 	scr.clear()
 	scr.text('Done!',0,0,1)
 	scr.show()
