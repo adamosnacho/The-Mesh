@@ -19,6 +19,7 @@ def upda():
 		apps.remove('wifi')
 		apps.remove('requests.py')
 		apps.remove('data')
+		apps.remove('v')
 	return apps
 
 #wifi init
