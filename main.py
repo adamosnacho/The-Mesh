@@ -37,7 +37,7 @@ with open('v','r') as f:
 
 #compare version
 scr.clear()
-scr.text('Comparing versions...',0,0,1)
+scr.text('Comp. versions...',0,0,1)
 scr.show()
 
 time.sleep(3)
@@ -52,7 +52,7 @@ if sta_if.isconnected():
 
 #loading screen
 scr.clear()
-scr.text('The Mesh | v-'+v,0,0,1)
+scr.text('The Mesh | v-'+v.replace('\n',''),0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
 time.sleep(0.5)
