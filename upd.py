@@ -1,5 +1,6 @@
 import requests
-
+scr.clear()
+scr.show()
 
 def wof(name):
     scr.clear()
