@@ -19,7 +19,6 @@ def upda():
 		apps.remove('wifi')
 		apps.remove('requests.py')
 		apps.remove('data')
-		apps.remove('v')
 	return apps
 
 #wifi init
@@ -32,12 +31,31 @@ try:
 	sta_if.connect(WIFISET[0], WIFISET[1])
 except:pass
 
+#get local version
+with open('v','r') as f:
+	v = f.read()
+
+#compare version
+scr.clear()
+scr.text('Comparing versions...',0,0,1)
+scr.show()
+
+time.sleep(3)
+if sta_if.isconnected():
+	if requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text != v:
+		print('Update required!')
+		scr.clear()
+		scr.text('Update required!',0,0,1)
+		scr.show()
+		time.sleep(3)
+		exec(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/upd.py').text)
+
 #loading screen
 scr.clear()
-scr.text('The Mesh | v-1',0,0,1)
+scr.text('The Mesh | v-'+v,0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
-time.sleep(0.7)
+time.sleep(0.5)
 
 
 #main menu
