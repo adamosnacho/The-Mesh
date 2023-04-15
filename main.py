@@ -19,7 +19,6 @@ def upda():
 		apps.remove('wifi')
 		apps.remove('requests.py')
 		apps.remove('data')
-		apps.remove('v')
 	return apps
 
 #wifi init
@@ -41,9 +40,12 @@ scr.clear()
 scr.text('Comp. versions...',0,0,1)
 scr.show()
 
-time.sleep(1.3)
+time.sleep(3)
 if sta_if.isconnected():
-	if requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text != v:
+	vext = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text
+	print(vext)
+	print(v)
+	if vext != v:
 		print('Update required!')
 		scr.clear()
 		scr.text('Update required!',0,0,1)
@@ -53,7 +55,7 @@ if sta_if.isconnected():
 
 #loading screen
 scr.clear()
-scr.text('The Mesh|v-'+v.replace('\n',''),0,0,1)
+scr.text('The Mesh | v-'+v.replace('\n',''),0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
 time.sleep(0.5)
@@ -93,3 +95,4 @@ while On:
 		apps = upda()
 
 	time.sleep(0.005)
+
