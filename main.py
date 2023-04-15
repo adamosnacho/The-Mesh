@@ -35,27 +35,9 @@ except:pass
 with open('v','r') as f:
 	v = f.read()
 
-#compare version
-scr.clear()
-scr.text('Comp. versions...',0,0,1)
-scr.show()
-
-time.sleep(3)
-if sta_if.isconnected():
-	vext = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text
-	print(vext)
-	print(v)
-	if vext != v:
-		print('Update required!')
-		scr.clear()
-		scr.text('Update required!',0,0,1)
-		scr.show()
-		time.sleep(3)
-		exec(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/upd.py').text)
-
 #loading screen
 scr.clear()
-scr.text('The Mesh | v-'+v.replace('\n',''),0,0,1)
+scr.text('The Mesh|v-'+v.replace('\n',''),0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
 time.sleep(0.5)
@@ -65,9 +47,23 @@ time.sleep(0.5)
 apps = upda()
 On = True
 pn = 0
+vchecked = False
 
 while On:
 	Connected = sta_if.isconnected()
+	if Connected and not vchecked:
+		vchecked = True
+		vext = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text
+		print(vext)
+		print(v)
+		if vext != v:
+			print('Update required!')
+			scr.clear()
+			scr.text('Update required!',0,0,1)
+			scr.show()
+			time.sleep(3)
+			exec(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/upd.py').text)
+		
 	scr.clear()
 	for i in range(len(apps)):
 		if i == pn:
