@@ -17,7 +17,7 @@ if sta_if.isconnected():
 	time.sleep(2)
 	wof('main.py')
 	wof('store.py')
-	wof('WifiConfig.py')
+	wof('Wifi.py')
 	wof('console.py')
 	wof('funcs.py')
 	scr.clear()
