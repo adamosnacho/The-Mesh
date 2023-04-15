@@ -102,6 +102,38 @@ class SSD1306(framebuf.FrameBuffer):
     def clear(self):
 		self.fill(0)
 
+	def Bitmap(x,y,xs,ys,pix,scale):
+	lpix = []
+	pix = pix.replace(' ','')
+	
+	#lexer
+	for index in range(0, len(pix), xs):
+		lpix.append(pix[index : index + xs])
+	
+	#scale x
+	for i in range(len(lpix)):
+		newlp = ''
+		lp = lpix[i]
+		for char in range(len(lp)):
+			for res in range(scale):
+				newlp += lp[char]
+		lpix[i] = newlp
+	
+	#scale y
+	newlp = []
+	for i in range(len(lpix)):
+		for res in range(scale):
+			newlp.append(lpix[i])
+	lpix = newlp
+	pix = ''.join(lpix)
+	print(lpix)
+	fb = framebuf.FrameBuffer(bytearray((xs*scale) * (ys*scale)), (xs*scale), (ys*scale), framebuf.MONO_VLSB)
+	fb.fill(0)
+	for y in range(ys*scale):
+		for x in range(xs*scale):
+			fb.pixel(x,y,int(pix[x+(y*ys*scale)]))
+	self.blit(fb,x,y)
+
 
 class SSD1306_I2C(SSD1306):
     def __init__(self, width, height, i2c, addr=0x3C, external_vcc=False):
