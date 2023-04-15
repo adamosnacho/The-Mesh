@@ -1,4 +1,5 @@
 import requests
+os.chdir('/')
 def wof(name):
 	scr.clear()
 	scr.text('Installing:',0,0,1)
