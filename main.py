@@ -18,6 +18,7 @@ def upda():
 		apps.remove('console.py')
 		apps.remove('wifi')
 		apps.remove('requests.py')
+		apps.remove('data')
 	return apps
 
 #wifi init
@@ -62,8 +63,10 @@ while On:
 	if Btn(4):
 		scr.clear()
 		scr.show()
-		time.sleep(0.01)
+		time.sleep(0.005)
+		os.chdir('/data')
 		exec(RF(apps[pn]))
+		os.chdir('/')
 		scr.clear()
 		scr.show()
 		time.sleep(0.01)
