@@ -10,7 +10,7 @@ def wof(name):
     with open(name,'w') as:
         if cnt != '' or cnt != '404: Not Found':
             f.write()
-if Connected:
+if sta_if.isconnected():
     scr.clear()
     scr.text('Connection',0,0,1)
     scr.text('estabilished.',0,10,1)
