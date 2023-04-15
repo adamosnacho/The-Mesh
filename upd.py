@@ -1,7 +1,6 @@
-import requests
 scr.clear()
 scr.show()
-
+import requests
 def wof(name):
     scr.clear()
     scr.text('Installing:',0,0,1)
