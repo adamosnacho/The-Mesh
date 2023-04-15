@@ -1,4 +1,3 @@
-time.sleep(5)
 import requests
 def wof(name):
 	scr.clear()
@@ -6,9 +5,10 @@ def wof(name):
 	scr.text(name,0,10,1)
 	scr.show()
 	cnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
+	if not sta_if.isconected():return
 	with open(name,'w') as f:
 		if cnt != '' or cnt != '404: Not Found':
-			f.write()
+			f.write(cnt)
 if sta_if.isconnected():
 	scr.clear()
 	scr.text('Connection',0,0,1)
