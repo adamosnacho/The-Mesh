@@ -40,15 +40,41 @@ def Keyboard(title):
 		scr.show()
 	return data
 
-ssid = Keyboard('ssid:')
-time.sleep(1)
+networks = []
+
+for (ssid, bssid, channel, RSSI, authmode, hidden) in sta_if.scan():
+	networks.append(ssid.decode())
+
+Picking = True
+pn = 0
+while Picking:
+	if Btn(1):
+		pn -= 1
+		time.sleep(0.1)
+	if Btn(2):
+		pn += 1
+		time.sleep(0.1)
+	pn = Clamp(pn,0,len(networks)-2)
+	
+	scr.clear()
+	for i in range(len(networks)-1):
+		if i == pn:scr.text('>'+networks[i],0,((i * 10) - (pn * 10))+30,1)
+		else:scr.text(networks[i],0,((i * 10) - (pn * 10))+30,1)
+	scr.show()
+	
+	if Btn(4):
+		ssid = networks[pn]
+		while Btn(4):continue
+		Picking = False
+
 pssw = Keyboard('password:')
 with open('wifi','w') as f:
 	f.write(str([ssid,pssw]))
 
-
-
-
-
-
-
+with open('wifi','r') as f:
+	WIFISET = eval(f.read())
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+try:
+	sta_if.connect(WIFISET[0], WIFISET[1])
+except:pass
