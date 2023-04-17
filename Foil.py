@@ -1,4 +1,4 @@
-import framebuf
+import framebuf,random
 
 #create save file
 if not exists('Foil.high'):
@@ -11,7 +11,7 @@ Running = True
 
 class wave:
 	def __init__(self,startPos):
-		self.fb = Bitmap(5,3,'00100 01100 11111',1,e=True)
+		self.fb = Bitmap(8,5,'00000100 00011100 00111110 01111110 11111111',1,e=True)
 		self.wx = startPos
 	def upd(self):
 		if self.wx < 0:self.wx = 130
@@ -19,14 +19,13 @@ class wave:
 	def move(self,x):
 		self.wx -=x
 
-f = Bitmap(10,12,'0000010000 0001110000 0011110000 0011110000 0111110000 0111110000 0011110000 1000010011 0111111100 0100000000 0100000000 1111000000',2)
-fly = False
+f = Bitmap(14,19,'00000011100000 00000111100000 00001111100000 00001111100000 00011111100000 00011111100000 00011111100000 00111111100000 00111111100000 00011111100000 00001111100000 00000011100000 11100000100111 001111111111100 00010000000000 00010000000000 00010000000000 00010000000000 11111100000000',2)
 gover = False
-fvy = 0
-fxv = 10
-fy = 28
-m = 0
 score = 0
+m = 0
+fy = 30
+rot = 0
+wv = 0
 
 #waves
 w = []
@@ -37,49 +36,44 @@ while Running:
 	if not gover:
 		#controls
 		score += 1
-		if Btn(3):fvy -= fxv / 10
-		if Btn(4):fxv += 0.5
-		else:fxv-=0.5
-		fxv = Clamp(fxv,0.3,4)
-		#phisics
-		fvy += 0.2
+		if Btn(3):rot += 0.5
+		if Btn(4):rot -= 0.5
 		
-		#pos manipul
-		fy += fvy
-		fy = int(fy)
-		
-		#conds
-		if fy > 39:
-			fy = 39
-			fvy = 0
-		
-		if fy < 33:
-			fly = False
-			fvy += 1
-			fxv -= 0.4
-			
-		if fy >33 and fy < 38:
-			m += 1
-			wm = 4 + fxv
-			fly = True
+		#calculations
+		if fy > 16:
+			fy -= rot
 		else:
-			m+=0.1
-			wm = 1 + fxv
-			fly = False
+			rot = 1
 		
-		for _w in w:
-			_w.move(wm)
+		rot += random.range(-0.1,0.1)
 		
-		if m >= 100:gover = True
+		rot = Clamp(rot, -2, 2)
+		
+		if InRange(fy,16,28):
+			m += 1
+			wm = 9
+		else:
+			m += 0.1
+			wm = 3
+		
+		if fy > 27:
+			fy = 27
+		
+		fy += 0.6
+		
+		
+		#conditions
+		if m >= 500:gover = True
 		
 		scr.clear()
-		scr.blit(f,20,fy)
+		scr.blit(f,20,int(fy))
 		for _w in w:
+			_w.move(wm)
 			_w.upd()
 		scr.fill_rect(0,56,128,10,1)
 		scr.text(str(round(m,1))+'m',0,0,1)
 		scr.show()
-
+		#27 17
 	else:
 		score = int(score / 10)
 		with open('Foil.high','r') as f:
@@ -94,9 +88,8 @@ while Running:
 		scr.text('Score:',0,10,1)
 		scr.text(str(score) + 'p',0,20,1)
 		scr.text('High Score:',0,30,1)
-		scr.text(str(high),0,40,1)
+		scr.text(str(high) + 'p',0,40,1)
 		scr.text('Press up to exit!',0,50,1)
 		scr.show()
 		while not Btn(1):continue
 		Running = False
-
