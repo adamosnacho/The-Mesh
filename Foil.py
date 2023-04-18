@@ -1,4 +1,4 @@
-import framebuf,random
+Łimport framebuf
 
 #create save file
 if not exists('Foil.high'):
@@ -45,7 +45,7 @@ while Running:
 		else:
 			rot = 1
 		
-		rot += random.range(-0.1,0.1)
+		rot += 0.01
 		
 		rot = Clamp(rot, -2, 2)
 		
