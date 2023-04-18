@@ -45,13 +45,12 @@ while Running:
 		else:
 			rot = 1
 		
-		rot += 0.01
-		
 		rot = Clamp(rot, -2, 2)
 		
 		if InRange(fy,16,28):
 			m += 1
 			wm = 9
+			rot += 0.030
 		else:
 			m += 0.1
 			wm = 3
