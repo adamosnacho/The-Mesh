@@ -1,4 +1,4 @@
-Łimport framebuf
+import framebuf
 
 #create save file
 if not exists('Foil.high'):
