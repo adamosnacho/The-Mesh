@@ -1,8 +1,9 @@
 import requests
 os.chdir('/')
 def wof(name):
+	os.remove(name)
 	scr.clear()
-	scr.text('Installing:',0,0,1)
+	scr.text('Updating:',0,0,1)
 	scr.text(name,0,10,1)
 	scr.show()
 	cnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
