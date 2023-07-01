@@ -25,15 +25,8 @@ def upda():
 	return apps
 
 #wifi init
+sta_if = do_connect()
 Connected = False
-with open('wifi','r') as f:
-	WIFISET = eval(f.read())
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
-try:
-	sta_if.connect(WIFISET[0], WIFISET[1])
-except:pass
-
 #get local version
 with open('v','r') as f:
 	v = f.read()
