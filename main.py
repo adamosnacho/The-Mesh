@@ -15,7 +15,7 @@ def upda():
 		apps.remove('funcs.py')
 		apps.remove('sh1106.py')
 		apps.remove('boot.py')
-		#apps.remove('console.py')
+		apps.remove('console.py')
 		apps.remove('wifi')
 		apps.remove('requests.py')
 		apps.remove('v')
@@ -87,3 +87,4 @@ while On:
 		time.sleep(0.01)
 		apps = upda()
 	scr.show()
+
