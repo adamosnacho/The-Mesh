@@ -1,5 +1,5 @@
 from machine import Pin, I2C, ADC
-import ssd1306,framebuf,os
+import framebuf,os
 
 def RF(name):return open('/'+name, 'r').read()
 
@@ -12,13 +12,13 @@ def exists(path):
 		return False
 def Btn(key):
 	if key == 1:
-		return not Pin(13,Pin.IN, Pin.PULL_UP).value()
+		return not Pin(9,Pin.IN, Pin.PULL_UP).value()
 	if key == 2:
-		return not Pin(12,Pin.IN, Pin.PULL_UP).value()
-	if key == 3:
-		return not Pin(14,Pin.IN, Pin.PULL_UP).value()
-	if key == 4:
 		return not Pin(2,Pin.IN, Pin.PULL_UP).value()
+	if key == 3:
+		return not Pin(4,Pin.IN, Pin.PULL_UP).value()
+	if key == 4:
+		return not Pin(3,Pin.IN, Pin.PULL_UP).value()
 
 def Clamp(x,Min,Max):
 	if x > Max: return Max
@@ -60,7 +60,4 @@ def Bitmap(xs,ys,pix,scale,e=False):
 			fb.pixel(x,y,int(pix[cp]))
 			cp += 1
 	return(fb)
-
-
-
 
