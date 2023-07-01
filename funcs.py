@@ -1,4 +1,4 @@
-from machine import Pin, I2C, ADC
+from machine import Pin, I2C, ADC, network
 import framebuf,os
 
 def RF(name):return open('/'+name, 'r').read()
