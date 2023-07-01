@@ -64,6 +64,7 @@ def Bitmap(xs,ys,pix,scale,e=False):
 def do_connect():
 	with open('wifi','r') as f:
 		WIFISET = eval(f.read())
-	wlan = network.WLAN(network.STA_IF) # create station interface
-	wlan.active(True)
-	wlan.connect(WIFISET[0],WIFISET[1])
+	sta_if = network.WLAN(network.STA_IF) # create station interface
+	sta_if.active(True)
+	sta_if.connect(WIFISET[0],WIFISET[1])
+	return sta_if
