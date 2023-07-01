@@ -61,3 +61,4 @@ def Bitmap(xs,ys,pix,scale,e=False):
 			cp += 1
 	return(fb)
 
+def do_connect()
