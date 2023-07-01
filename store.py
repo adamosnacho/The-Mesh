@@ -1,4 +1,3 @@
-import network
 Running = True
 os.chdir('/')
 def Keyboard(title):
