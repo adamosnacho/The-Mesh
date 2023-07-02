@@ -1,5 +1,5 @@
 from machine import Pin, I2C
-import time, os, machine, requests, network
+import time, os, machine, requests, network, _thread
 from sh1106 import SH1106_I2C
 from funcs import *
 
@@ -31,6 +31,8 @@ Connected = False
 with open('v','r') as f:
 	v = f.read()
 v = eval(v)
+
+
 
 #loading screen
 scr.clear()
@@ -80,11 +82,21 @@ while On:
 		scr.show()
 		time.sleep(0.005)
 		os.chdir('/data')
-		exec(RF(apps[pn]))
+		try:
+			exec(RF(apps[pn]))
+		except Exception as e:
+			print(e)
+			for i in range(len(str(e))*10):
+				scr.clear()
+				scr.text(str(e),(i*-1)+20,0,1)
+				scr.show()
+				time.sleep(0.009)
+			
 		os.chdir('/')
 		scr.clear()
 		scr.show()
 		time.sleep(0.01)
 		apps = upda()
 	scr.show()
+
 
