@@ -1,4 +1,4 @@
- def Keyboard(title):
+def Keyboard(title):
 	tick = 0
 	data = ''
 	pn = 0
