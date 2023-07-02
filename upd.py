@@ -26,7 +26,8 @@ if sta_if.isconnected():
 	scr.clear()
 	scr.text('Done!',0,0,1)
 	scr.show()
-	os.remove('upd.py')
+	try:os.remove('upd.py')
+	except:pass
 	machine.reset()
 	time.sleep(15)
 else:
