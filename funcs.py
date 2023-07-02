@@ -81,11 +81,13 @@ def PickList(choices,scr):
 	Picking = True
 	pn = 0
 	while Picking:
+		scr.clear()
 		for i in range(len(choices)):
 			if i == pn:
 				scr.text('>' + choices[i], 1, ((i * 10) - (pn * 10))+30, 1)
 			else:
 				scr.text(choices[i], 1, ((i * 10) - (pn * 10))+30, 1)
+		scr.show()
 		if Btn(1):
 			pn -= 1
 			time.sleep(0.2)
