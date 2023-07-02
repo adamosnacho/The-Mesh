@@ -2,6 +2,8 @@ Running = True
 os.chdir('/')
 
 if Connected:
+	scr.text('Loading apps...',0,0,1)
+	sc r.show()
 	appList = eval(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/AppList.ls').text)
 	if Btn(3):
 		while Btn(3):continue
