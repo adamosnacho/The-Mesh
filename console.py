@@ -39,7 +39,7 @@ def Keyboard(title):
 		scr.show()
 
 	return data
-oa.chdir('/')
+os.chdir('/')
 try:
   exec(Keyboard('~DEV~'))
 except:pass
