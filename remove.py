@@ -50,5 +50,8 @@ files.remove('wifi')
 files.remove('requests.py')
 files.remove('v')
 files.remove('data')
+files.remove('Wifi.py')
+files.remove('store.py')
+
 file = PickList(files,scr)
 os.remove(file)
