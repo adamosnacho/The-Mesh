@@ -1,4 +1,4 @@
-import framebuf
+import framebuf, random
 
 #create save file
 if not exists('Foil.high'):
@@ -12,9 +12,9 @@ Running = True
 class wave:
 	def __init__(self,startPos):
 		self.fb = Bitmap(8,5,'00000100 00011100 00111110 01111110 11111111',1,e=True)
-		self.wx = startPos
+		self.wx = startPos + random.randint(-2,2)
 	def upd(self):
-		if self.wx < 0:self.wx = 130
+		if self.wx < 0:self.wx = 130 + random.randint(-2,2)
 		scr.blit(self.fb,int(self.wx),53)
 	def move(self,x):
 		self.wx -=x
@@ -36,31 +36,25 @@ while Running:
 	if not gover:
 		#controls
 		score += 1
-		if Btn(3):rot += 0.5
-		if Btn(4):rot -= 0.5
+		if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
 		
 		#calculations
-		if fy > 16:
-			fy -= rot
-		else:
-			rot = 1
-		
-		rot = Clamp(rot, -2, 2)
-		
-		if InRange(fy,16,28):
+		rot = Clamp(rot, -1, 1)
+		if InRange(fy,16,26):
+
+			wm = 7
+			rot += 0.1
 			m += 1
-			wm = 9
-			rot += 0.030
 		else:
-			m += 0.1
+			if fy < 26:
+				rot += 1
 			wm = 3
+			m += 0.03
+		if fy > 25:
+			fy = 25
+		fy += rot
 		
-		if fy > 27:
-			fy = 27
-		
-		fy += 0.6
-		
-		
+		#16 min 27 water
 		#conditions
 		if m >= 500:gover = True
 		
@@ -72,7 +66,6 @@ while Running:
 		scr.fill_rect(0,56,128,10,1)
 		scr.text(str(round(m,1))+'m',0,0,1)
 		scr.show()
-		#27 17
 	else:
 		score = int(score / 10)
 		with open('Foil.high','r') as f:
@@ -92,3 +85,4 @@ while Running:
 		scr.show()
 		while not Btn(1):continue
 		Running = False
+
