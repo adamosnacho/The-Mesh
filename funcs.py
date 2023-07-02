@@ -1,7 +1,10 @@
-from machine import Pin, I2C, ADC
-import framebuf, os, network
+from machine import Pin, I2C, ADC, reset
+import framebuf, os, network, time
 
-def RF(name):return open('/'+name, 'r').read()
+def RF(name):
+	with open('/'+name, 'r') as f:
+		cnt = f.read()
+	return cnt
 
 def exists(path):
 	try:
@@ -68,3 +71,10 @@ def do_connect():
 	sta_if.active(True)
 	sta_if.connect(WIFISET[0],WIFISET[1])
 	return sta_if
+
+def InRange(x,minn,maxn):
+	if x > minn and x < maxn:
+		return True
+	else:
+		return False
+
