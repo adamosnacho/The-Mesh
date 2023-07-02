@@ -98,3 +98,24 @@ def PickList(choices,scr):
 		if Btn(4):
 			Picking = False
 			return choices[pn]
+
+def Keyboard(title,scr):
+	chars = "!#$%&'()*+,-./123456789;<=>?@BCDEFGHIJKLMNOPQRSTUVWXYZ\]^_`bcdefghijklmnopqrstuvwxyz|}~ 	"
+	scr.clear()
+	Typing = True
+	pn = 0
+	t = ''
+	while Typing:
+		scr.clear()
+		scr.text(t,120+ (-1*len(t)),32,1)
+		scr.fill_rect(0,0,128,12,1)
+		if pn != len(chars):
+			scr.text(str(title)+' <'+chars[pn]+'>',0,1,0)
+		else:
+			scr.text(str(title)+' <del>',0,1,0)
+
+		if Btn(1):pn+= 1; time.sleep(0.007)
+		if Btn(2):pn-= 1; time.sleep(0.007)
+		pn = Clamp(pn,0,len(t))
+
+		
