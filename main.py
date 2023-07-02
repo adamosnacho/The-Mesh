@@ -42,6 +42,8 @@ scr.show()
 time.sleep(1)
 
 
+NetBtm = Bitmap(5,5,'11111 00000 01110 00000 00100',1)
+
 #main menu
 apps = upda()
 On = True
@@ -51,6 +53,8 @@ vchecked = False
 while On:
 	scr.clear()
 	Connected = sta_if.isconnected()
+	if Connected:
+		scr.blit(NetBtm,123,0)
 	if Connected and not vchecked:
 		vchecked = True
 		vext = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/v').text
@@ -98,5 +102,6 @@ while On:
 		time.sleep(0.01)
 		apps = upda()
 	scr.show()
+
 
 
