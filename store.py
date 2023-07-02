@@ -48,7 +48,7 @@ if Connected:
 		appName = Keyboard('app')
 	else:
 		appName = PickList(appList,scr)
-	appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+appName+'.py').text
+	appCnt = requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/'+str(appName)+'.py').text
 	if appCnt == '404: Not Found':
 		scr.clear()
 		scr.text('No Such App!',0,0,1)
