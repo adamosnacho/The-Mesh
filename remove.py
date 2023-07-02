@@ -1,3 +1,4 @@
+while Btn(4):continue
 os.chdir('/')
 files = os.listdir()
 files.remove('main.py')
