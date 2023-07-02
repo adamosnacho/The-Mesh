@@ -45,6 +45,7 @@ def Keyboard(title):
 if Connected:
 	appList = eval(requests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/apps/AppList.ls').text)
 	if Btn(3):
+		while Btn(3)
 		appName = Keyboard('app')
 	else:
 		appName = PickList(appList,scr)
