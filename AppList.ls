@@ -1,4 +1,5 @@
 [
   'Foil',
   'dino',
+  'remove',
 ]
