@@ -35,17 +35,16 @@ for i in range(26):
 while Running:
 	if not gover:
 		score += 1
-		
+		if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
 		#calculations
 		rot = Clamp(rot, -5, 3)
 		if InRange(fy,16,26):
-			if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
 			wm = 7
 			rot += 0.1
 			m += 1
 		else:
 			if fy < 26:
-				rot += 0.3
+				rot += 0.85
 			wm = 3
 			m += 0.03
 		if fy > 27:
