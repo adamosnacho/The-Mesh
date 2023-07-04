@@ -41,9 +41,9 @@ while Running:
 			
 		
 		score += 1
-		if fy > 26:
+		if fy > 16:
 			if Btn(4) or Btn(3) or Btn(2) or Btn(1):
-				rot_temp = (4 * (windSpeed / 6)) / 10
+				rot_temp = (4 * (windSpeed / 6)) / 12
 				rot -= rot_temp
 		#calculations
 		rot = Clamp(rot, -5, 3)
@@ -89,7 +89,6 @@ while Running:
 		scr.text(str(high) + 'p',0,40,1)
 		scr.text('up - exit | down - again',0,50,1)
 		scr.show()
-		while not Btn(1) or not Btn(2):continue
-		if Btn(1):
-			Running = False
+		while not Btn(1):continue
+		Running = False
 
