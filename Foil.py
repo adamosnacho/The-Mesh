@@ -37,9 +37,9 @@ while Running:
 		score += 1
 		
 		#calculations
-		rot = Clamp(rot, -3, 3)
+		rot = Clamp(rot, -10, 3)
 		if InRange(fy,16,26):
-			if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
+			if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.7
 			wm = 7
 			rot += 0.1
 			m += 1
@@ -48,8 +48,8 @@ while Running:
 				rot += 0.3
 			wm = 3
 			m += 0.03
-		if fy > 25:
-			fy = 25
+		if fy > 27:
+			fy = 27
 		fy += rot
 		
 		#16 min 27 water
