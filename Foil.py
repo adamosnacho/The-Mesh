@@ -41,10 +41,9 @@ while Running:
 			
 		
 		score += 1
-		if fy > 16:
-			if Btn(4) or Btn(3) or Btn(2) or Btn(1):
-				rot_temp = (4 * (windSpeed / 6)) / 12
-				rot -= rot_temp
+		if Btn(4) or Btn(3) or Btn(2) or Btn(1):
+			rot_temp = (4 * (windSpeed / 6)) / 12
+			rot -= rot_temp
 		#calculations
 		rot = Clamp(rot, -5, 3)
 		if InRange(fy,16,26):
@@ -53,7 +52,7 @@ while Running:
 			m += 1
 		else:
 			if fy < 26:
-				rot += 0.2
+				rot += 1.4
 			wm = 3
 			m += 0.03
 		if fy > 27:
