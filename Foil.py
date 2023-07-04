@@ -86,7 +86,7 @@ while Running:
 		scr.text(str(score) + 'p',0,20,1)
 		scr.text('High Score:',0,30,1)
 		scr.text(str(high) + 'p',0,40,1)
-		scr.text('up - exit | down - again',0,50,1)
+		scr.text('up - exit',0,50,1)
 		scr.show()
 		while not Btn(1):continue
 		Running = False
