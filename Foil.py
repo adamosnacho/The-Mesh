@@ -26,6 +26,7 @@ m = 0
 fy = 30
 rot = 0
 wv = 0
+windSpeed = 10
 
 #waves
 w = []
@@ -34,8 +35,16 @@ for i in range(26):
 
 while Running:
 	if not gover:
+		#windchange
+		if random.randint(0,200) == 1:
+			windSpeed = random.randint(6,14)
+			
+		
 		score += 1
-		if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
+		if fy > 26:
+			if Btn(4) or Btn(3) or Btn(2) or Btn(1):
+				rot_temp = (4 * (windSpeed / 6)) / 10
+				rot -= rot_temp
 		#calculations
 		rot = Clamp(rot, -5, 3)
 		if InRange(fy,16,26):
@@ -44,7 +53,7 @@ while Running:
 			m += 1
 		else:
 			if fy < 26:
-				rot += 1
+				rot += 0.2
 			wm = 3
 			m += 0.03
 		if fy > 27:
@@ -61,7 +70,7 @@ while Running:
 			_w.move(wm)
 			_w.upd()
 		scr.fill_rect(0,56,128,10,1)
-		scr.text(str(round(m,1))+'m',0,0,1)
+		scr.text(str(round(m,1))+'m | '+str(windSpeed)+'kts',0,0,1)
 		scr.show()
 	else:
 		score = int(score / 10)
