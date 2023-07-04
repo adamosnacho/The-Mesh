@@ -37,9 +37,9 @@ while Running:
 		score += 1
 		
 		#calculations
-		rot = Clamp(rot, -10, 3)
+		rot = Clamp(rot, -5, 3)
 		if InRange(fy,16,26):
-			if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.7
+			if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
 			wm = 7
 			rot += 0.1
 			m += 1
