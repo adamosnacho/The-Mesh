@@ -39,7 +39,7 @@ while Running:
 		if Btn(4) or Btn(3) or Btn(2) or Btn(1):rot -= 0.8
 		
 		#calculations
-		rot = Clamp(rot, -1, 1)
+		rot = Clamp(rot, -3, 3)
 		if InRange(fy,16,26):
 
 			wm = 7
@@ -47,7 +47,7 @@ while Running:
 			m += 1
 		else:
 			if fy < 26:
-				rot += 1
+				rot += 0.3
 			wm = 3
 			m += 0.03
 		if fy > 25:
@@ -81,8 +81,9 @@ while Running:
 		scr.text(str(score) + 'p',0,20,1)
 		scr.text('High Score:',0,30,1)
 		scr.text(str(high) + 'p',0,40,1)
-		scr.text('Press up to exit!',0,50,1)
+		scr.text('up - exit | down - again',0,50,1)
 		scr.show()
-		while not Btn(1):continue
-		Running = False
+		while not Btn(1) or not Btn(2):continue
+		if Btn(1):
+			Running = False
 
