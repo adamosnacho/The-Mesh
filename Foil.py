@@ -44,7 +44,7 @@ while Running:
 			m += 1
 		else:
 			if fy < 26:
-				rot += 0.85
+				rot += 1
 			wm = 3
 			m += 0.03
 		if fy > 27:
