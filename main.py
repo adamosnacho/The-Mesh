@@ -76,10 +76,10 @@ while On:
 			scr.text(apps[i].replace('.py', ''), 1, ((i * 10) - (pn * 10))+30, 1)
 	if Btn(1):
 		pn -= 1
-		time.sleep(0.2)
+		time.sleep(0.1)
 	if Btn(2):
 		pn += 1
-		time.sleep(0.2)
+		time.sleep(0.1)
 	pn = Clamp(pn, 0, len(apps) - 1)
 	if Btn(4) and apps[pn] != 'none.py':
 		scr.clear()
@@ -102,6 +102,8 @@ while On:
 		time.sleep(0.01)
 		apps = upda()
 	scr.show()
+	time.sleep(0.001)
+
 
 
 
