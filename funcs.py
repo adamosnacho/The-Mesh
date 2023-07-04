@@ -15,7 +15,7 @@ def exists(path):
 		return False
 def Btn(key):
 	if key == 1:
-		return not Pin(9,Pin.IN, Pin.PULL_UP).value()
+		return not Pin(10,Pin.IN, Pin.PULL_UP).value()
 	if key == 2:
 		return not Pin(2,Pin.IN, Pin.PULL_UP).value()
 	if key == 3:
