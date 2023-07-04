@@ -10,7 +10,7 @@ scr.contrast(200)
 #lists and sets all apps
 def upda():
 	apps = os.listdir()
-	if not Btn(1):
+	if not Btn(1) or not Btn(2):
 		apps.remove('main.py')
 		apps.remove('funcs.py')
 		apps.remove('sh1106.py')
