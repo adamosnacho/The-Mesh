@@ -4,3 +4,4 @@ Picking = True
 pn = 0
 file = PickList(files,scr)
 os.remove(file)
+time.sleep(1)
