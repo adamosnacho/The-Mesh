@@ -12,4 +12,4 @@ files.remove('v')
 files.remove('data')
 file = PickList(files,scr)
 os.remove(file)
-
+time.sleep(1)
