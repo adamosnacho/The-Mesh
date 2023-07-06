@@ -101,7 +101,7 @@ def PickList(choices,scr):
 
 def Keyboard(title,scr):
 	while Btn(4):continue
-	chars = "!#$%&'()*+,-./123456789;<=>?@BCDEFGHIJKLMNOPQRSTUVWXYZ\]^_`abcdefghijklmnopqrstuvwxyz|}~ "
+	chars = "!#$%&'()*+,-./123456789;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ\]^_`abcdefghijklmnopqrstuvwxyz|}~ "
 	scr.clear()
 	Typing = True
 	pn = 0
