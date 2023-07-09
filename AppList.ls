@@ -2,5 +2,5 @@
   'Foil',
   'dino',
   'remove',
-  'poff',
+  'poff'
 ]
