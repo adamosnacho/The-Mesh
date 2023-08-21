@@ -161,7 +161,8 @@ def do_connect():
     return sta_if
 
 
-def dwnl_install(name):
+def dwnl_install(name,lc):
+	os.chdir(lc)
 	print('downloading '+name)
 	cnt = get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
 	print('installing '+name)
@@ -198,16 +199,18 @@ else:
 	print('Connected')
 	try:
 		os.mkdir('data')
+		os.mkdir('apps')
+		os.mkdir('dev')
 	except:pass
-	dwnl_install('main.py')
-	dwnl_install('sh1106.py')
-	dwnl_install('Wifi.py')
-	dwnl_install('store.py')
-	dwnl_install('requests.py')
-	dwnl_install('console.py')
-	dwnl_install('funcs.py')
-	dwnl_install('wifi')
-	dwnl_install('v')
+	dwnl_install('main.py','/')
+	dwnl_install('sh1106.py','/')
+	dwnl_install('Wifi.py','apps')
+	dwnl_install('store.py','apps')
+	dwnl_install('requests.py','/')
+	dwnl_install('console.py','dev')
+	dwnl_install('funcs.py','/')
+	dwnl_install('wifi','/')
+	dwnl_install('v','/')
 
 
 
