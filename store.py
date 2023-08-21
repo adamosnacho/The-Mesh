@@ -20,7 +20,7 @@ if Connected:
 		scr.clear()
 		scr.text('Installing...',0,0,1)
 		scr.show()
-		with open(appName+'.py', 'w') as appfile:
+		with open('apps/'+appName+'.py', 'w') as appfile:
 			appfile.write(appCnt)
 		time.sleep(2)
 else:
@@ -28,4 +28,3 @@ else:
 	scr.text('No Internet!',0,0,1)
 	scr.show()
 	time.sleep(2)
-
