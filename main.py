@@ -9,23 +9,15 @@ scr = SH1106_I2C(128, 64, i2c)
 scr.contrast(200)
 #lists and sets all apps
 def upda():
-	apps = os.listdir()
-	if not Btn(1) or not Btn(2):
-		apps.remove('main.py')
-		apps.remove('funcs.py')
-		apps.remove('sh1106.py')
-		apps.remove('boot.py')
-		apps.remove('console.py')
-		apps.remove('wifi')
-		apps.remove('requests.py')
-		apps.remove('v')
-		apps.remove('data')
+	apps = os.listdir('/apps')
+	
 	if len(apps) == 0:
 		apps.append('none.py')
 	return apps
 
 #wifi init
 sta_if = do_connect()
+
 Connected = False
 #get local version
 with open('v','r') as f:
@@ -36,7 +28,7 @@ v = eval(v)
 
 #loading screen
 scr.clear()
-scr.text('The Mesh|v-'+str(v).replace('\n',''),0,0,1)
+scr.text('The Mesh|v-'+str(v).replace('',''),0,0,1)
 scr.text('by Adam Ryan',0,54,1)
 scr.show()
 time.sleep(1)
@@ -46,6 +38,7 @@ NetBtm = Bitmap(5,5,'11111 00000 01110 00000 00100',1)
 
 #main menu
 apps = upda()
+apps.append('dev.py')
 On = True
 pn = 0
 vchecked = False
@@ -87,7 +80,11 @@ while On:
 		time.sleep(0.005)
 		os.chdir('/data')
 		try:
-			exec(RF(apps[pn]))
+			if apps[pn] != 'dev.py':
+				exec(RF('apps/'+apps[pn]))
+			else:
+				while Btn(4):continue
+				exec(RF('dev/'+PickList(os.listdir('/dev'),scr)))
 		except Exception as e:
 			print(e)
 			for i in range(len(str(e))*10):
@@ -101,9 +98,6 @@ while On:
 		scr.show()
 		time.sleep(0.01)
 		apps = upda()
+		apps.append('dev.py')
 	scr.show()
 	time.sleep(0.001)
-
-
-
-
