@@ -58,7 +58,6 @@ else:
 	dwnl_install('sh1106.py','/')
 	dwnl_install('Wifi.py','apps')
 	dwnl_install('store.py','apps')
-	dwnl_install('requests.py','/')
 	dwnl_install('console.py','dev')
 	dwnl_install('funcs.py','/')
 	dwnl_install('wifi','/')
