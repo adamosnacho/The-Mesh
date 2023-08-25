@@ -16,7 +16,7 @@ def do_connect():
 def dwnl_install(name,lc):
 	os.chdir(lc)
 	print('downloading '+name)
-	cnt = get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
+	cnt = urequests.get('https://raw.githubusercontent.com/adamosnacho/The-Mesh/Os/'+name).text
 	print('installing '+name)
 	with open(name,'w') as f:
 		f.write(cnt)
