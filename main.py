@@ -1,8 +1,8 @@
 from machine import Pin, I2C
-import time, os, machine, requests, network, _thread
+import time, os, machine, network, _thread
 from sh1106 import SH1106_I2C
 from funcs import *
-
+import urequests as requests
 #oled init
 i2c = machine.I2C(sda=Pin(6), scl=Pin(7))
 scr = SH1106_I2C(128, 64, i2c)
