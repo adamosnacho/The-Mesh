@@ -1,4 +1,3 @@
-import requests
 os.chdir('/')
 def wof(name):
 	os.remove(name)
