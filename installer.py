@@ -1,5 +1,5 @@
 import network
-import usocket
+import urequests
 import time
 import os
 
@@ -100,58 +100,6 @@ def request(method, url, data=None, json=None, headers={}, stream=None, parse_he
                     break
                 #print(l)
 
-                if l.startswith(b"Transfer-Encoding:"):
-                    if b"chunked" in l:
-                        raise ValueError("Unsupported " + l)
-                elif l.startswith(b"Location:") and 300 <= status <= 399:
-                    if not redir_cnt:
-                        raise ValueError("Too many redirects")
-                    redir_cnt -= 1
-                    url = l[9:].decode().strip()
-                    #print("redir to:", url)
-                    status = 300
-                    break
-
-                if parse_headers is False:
-                    pass
-                elif parse_headers is True:
-                    l = l.decode()
-                    k, v = l.split(":", 1)
-                    resp_d[k] = v.strip()
-                else:
-                    parse_headers(l, resp_d)
-        except OSError:
-            s.close()
-            raise
-
-        if status != 300:
-            break
-
-    resp = Response(s)
-    resp.status_code = status
-    resp.reason = reason
-    if resp_d is not None:
-        resp.headers = resp_d
-    return resp
-
-
-def head(url, **kw):
-    return request("HEAD", url, **kw)
-
-def get(url, **kw):
-    return request("GET", url, **kw)
-
-def post(url, **kw):
-    return request("POST", url, **kw)
-
-def put(url, **kw):
-    return request("PUT", url, **kw)
-
-def patch(url, **kw):
-    return request("PATCH", url, **kw)
-
-def delete(url, **kw):
-    return request("DELETE", url, **kw)
 
 
 def do_connect():
