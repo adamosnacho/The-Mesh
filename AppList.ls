@@ -3,5 +3,6 @@
   'dino',
   'remove',
   'poff',
+  'Ws',
 ]
    
