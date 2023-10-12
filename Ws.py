@@ -1,3 +1,5 @@
+while False:pass
+
 try:
   import usocket as socket
 except:
